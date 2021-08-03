@@ -1,0 +1,27 @@
+AddType application/font-woff            .woff
+AddType application/font-woff2           .woff2
+
+<IfModule mod_rewrite.c>
+
+    Options -Indexes
+    RewriteEngine On
+
+    RewriteCond %{SERVER_PORT} 80
+
+	#Logout
+	RewriteRule ^logout/?$ index.php?module=dashboard&action=logout [QSA,L] 
+	
+	#Dashboard page
+	RewriteRule ^dashboard/(.*?)/?$ index.php?module=dashboard&action=$1 [QSA,L]
+	
+	#Profile page
+	RewriteRule ^profile/(.*?)/?$ index.php?module=profile&action=$1 [QSA,L]
+	
+	#Front end pages
+	RewriteRule ^home/?$ index.php?module=home&action=home [QSA,L]
+	RewriteRule ^ads/?$ index.php?module=ads&action=ads [QSA,L]
+	
+	
+	ErrorDocument 404 /index.php?module=404
+
+</IfModule>
