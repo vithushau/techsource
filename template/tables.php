@@ -39,9 +39,9 @@
                             <td><?php echo $row['date'] ?></td>
                             <td><?php echo $row['returned_date'] ?></td>
                             <td style="text-align: center;">
-                                    <a href="<?php echo BASE_URL . 'dashboard/edit_record?id='; ?><?php echo $row['record_id'] ?>"><button type="button" class="btn btn-outline-secondary">Edit</button></a>
-                                    <a href="<?php echo BASE_URL . 'dashboard/delete_record?id='; ?><?php echo $row['record_id'] ?>"><button onclick="return confirm('Do you really want to delete?')" type="button" class="btn btn-outline-danger">Delete</button></a>
-                                    <a href="<?php echo BASE_URL . 'dashboard/edit_record?id='; ?><?php echo $row['record_id'] ?>"><button type="button" class="btn btn-outline-danger">Print PDF</button></a>
+                                    <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button type="button" class="btn btn-outline-secondary">Edit</button></a>
+                                    <a href="<?php echo BASE_URL . 'delete_record?id='; ?><?php echo $row['record_id'] ?>"><button onclick="return confirm('Do you really want to delete?')" type="button" class="btn btn-outline-danger">Delete</button></a>
+                                    <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button type="button" class="btn btn-outline-danger">Print PDF</button></a>
                             </td>
                           </tr>
                       <?php } ?>
