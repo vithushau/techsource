@@ -13,8 +13,8 @@
 		include_once( CLASS_PATH . "record.php" );
 		$objRecord = NEW Record();
 		
-		// include_once( CLASS_PATH . "banners.php" );
-		// $objBanners = NEW Banners();
+		include_once( CLASS_PATH . "customer.php" );
+		$objCustomer = NEW Customer();
 		
 		include_once( CLASS_PATH . "login.php" );
 		$objLogin = NEW Login();

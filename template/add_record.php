@@ -30,20 +30,32 @@
 					</div>
 				  
 				  <div class="row-title"><h2>Customer Details</h2></div>
+				  	<div class="row">
+						<div class="col-sm-6">
+						<label class="checkbox-inline">
+						<input type="radio" id="existing" value="existing" name="check_status" >Select Existing Customer
+						</label>
+						</div>
+
+						<div class="col-sm-6">
+						<label class="checkbox-inline">
+						<input type="radio" id="addNew" value="addNew" checked name="check_status" >Add New Customer
+						</label>
+						</div>
+				  	</div>
 				  
-                    <div class="row">
-					
-					
+				  	<div id="show_add_new">
+				  <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Customer Name</label>
-                          <input type="text" required name="cus_name" class="form-control" >
+                          <input type="text" name="cus_name" class="form-control" >
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="email" required name="cus_email" class="form-control">
+                          <input type="email" name="cus_email" class="form-control">
                         </div>
                       </div>
                       
@@ -52,19 +64,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone Number</label>
-                          <input type="text" required name="cus_phone1" class="form-control">
+                          <input type="text" name="cus_phone1" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone Number 2</label>
-                          <input type="text" required name="cus_phone2" class="form-control">
+                          <input type="text" name="cus_phone2" class="form-control">
                         </div>
                       </div>
 					  <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Landline</label>
-                          <input type="text" required name="land_line" class="form-control">
+                          <input type="text" name="land_line" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -72,7 +84,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Adress</label>
-                          <input type="text" required name="address_line1" class="form-control">
+                          <input type="text" name="address_line1" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -80,17 +92,34 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">City</label>
-                          <input type="text" required name="city" class="form-control">
+                          <input type="text" name="city" class="form-control">
                         </div>
                       </div>
                      
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" required name="postal_code" class="form-control">
+                          <input type="text" name="postal_code" class="form-control">
                         </div>
                       </div>
                     </div>
+				  </div>
+
+				  <div id="show_existing">
+				  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <select name="customer_id" id="customer_id">
+							  <option value="">-- Select a Type -- </option>
+							  <?php foreach($customers as $row) {  ?>
+							  <option value="<?php echo $row['cus_id'] ?>"><?php echo $row['cus_name'] ?></option>
+							  <?php } ?>
+							</select>
+						</div>
+					 </div>
+				  </div>
+				  </div>
+                    
 					
 					<div class="row-title"><h2>Product Details</h2></div>
 
@@ -129,7 +158,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Others</label>
-							  <input required type="text" name="others" class="form-control">
+							  <input type="text" name="others" class="form-control">
 							</div>
 						 </div>
 						
@@ -140,13 +169,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Serial / IMEI No.</label>
-							  <input required type="text" name="serial_no" class="form-control">
+							  <input type="text" name="serial_no" class="form-control">
 							</div>
 						 </div>
 						 <div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Warranty Details</label>
-							  <input required type="text" name="warranty" class="form-control">
+							  <input type="text" name="warranty" class="form-control">
 							</div>
 						 </div>
 					</div>
@@ -156,13 +185,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Accessories delivered</label>
-							  <textarea required id="accessories" name="accessories" rows="4" cols="50"></textarea>
+							  <textarea id="accessories" name="accessories" rows="4" cols="50"></textarea>
 							</div>
 						 </div>
 						 <div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">General Statement </label>
-							  <textarea required id="general_statement" name="general_statement" rows="4" cols="50"></textarea>
+							  <textarea id="general_statement" name="general_statement" rows="4" cols="50"></textarea>
 							</div>
 						 </div>
 					</div>
@@ -172,7 +201,7 @@
 							<div class="form-group">
 							  <label class="bmd-label-floating">Non Compliance</label>
 
-							  <textarea required id="non_compliance" name="non_compliance" rows="4" cols="50"></textarea>
+							  <textarea id="non_compliance" name="non_compliance" rows="4" cols="50"></textarea>
 							</div>
 						 </div>
 						
@@ -183,7 +212,7 @@
 							<div class="row-title"><h2>Product Condition</h2></div>
 								<div class="form-group">
 							  		<h4>Scratched</h4>
-							  		<div class="row">
+							  		<div class="row checkbox-group required">
 								  <div class="col-sm-2">
 									<label class="checkbox-inline">
 									  <input type="checkbox" value="topover" name="scratch[]">Top Cover</label>
@@ -214,7 +243,7 @@
 								
 								  <h4>Cracked</h4>
 								
-								 <div class="row">
+								 <div class="row checkbox-group required">
 							  
 							
 
@@ -245,7 +274,7 @@
 								
 								<h4>Damaged</h4>
 								
-								 <div class="row">
+								 <div class="row checkbox-group required">
 							  
 							
 
@@ -281,7 +310,7 @@
 											<div class="form-group">
 											  <label class="bmd-label-floating">Other Notes</label>
 											  <input type="text" class="form-control">
-											  <textarea required id="condition_others" name="condition_others" rows="4" cols="50"></textarea>
+											  <textarea id="condition_others" name="condition_others" rows="4" cols="50"></textarea>
 											</div>
 										 </div>
 										
@@ -295,7 +324,7 @@
 					
 					<div class="row-title"><h2>Backup Details</h2></div>
 					
-					<div class="row">
+					<div class="row checkbox-group required">
 
 								  <div class="col-sm-3">
 									<label class="checkbox-inline">
@@ -341,7 +370,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Other</label>
-							  <input required type="text" name="repair_other" class="form-control">
+							  <input type="text" name="repair_other" class="form-control">
 							</div>
 						 </div>
 						
@@ -353,7 +382,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Addional Information / Parts</label>
- <textarea id="additional_information" required name="additional_information" rows="4" cols="50"></textarea>
+ <textarea id="additional_information" name="additional_information" rows="4" cols="50"></textarea>
                         </div>
                       </div>
                     </div>
@@ -403,7 +432,7 @@
 					
 					 					
                    
-                    <button type="submit" name="add_record" class="btn btn-primary pull-right">Add Record</button>
+                    <button type="submit" name="add_record" id="add_record" class="btn btn-primary pull-right">Add Record</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -413,3 +442,41 @@
           </div>
         </div>
       </div>
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	  <script>
+        $(function() {
+
+            $('#existing').on('change', function(){
+
+                if ($(this).val() === 'existing' ) {
+                    $("#show_add_new").css("display",'none');
+					$("#show_existing").css("display",'');
+                    //alert(this)
+                }
+            });
+            $('#addNew').on('change', function(){
+
+                if ($(this).val() === 'addNew' ) {
+                    $("#show_existing").css("display",'none');
+					$("#show_add_new").css("display",'');
+                    //alert(this)
+                }
+            })
+
+        });
+
+		
+		function validate() {
+		if($('div.checkbox-group.required :checkbox:checked').length > 0){
+			//alert('Select Checkbox');
+		}else{
+			alert('Select Checkbox');
+		}
+		}
+
+		$("#add_record").click(function() {
+    		validate();
+		});
+    </script>

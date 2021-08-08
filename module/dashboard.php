@@ -38,6 +38,7 @@
 		$page = "add_record";
 		$pro_brands = $objRecord->get_pro_brand();	
 		$pro_types = $objRecord->get_pro_types();	
+		$customers = $objCustomer->getCustomers();	
 		if ( isset ( $_POST["add_record" ] ) ) {
 			$date=$_POST['date'];
 			$returned_date=$_POST['returned_date'];
@@ -76,8 +77,12 @@
 			$total=$_POST['total'];
 			$paid=$_POST['paid'];
 			$staff_id = "1";
-
-			$customer_result = $objRecord->addCustomer($cus_name, $cus_email, $cus_phone1,$cus_phone2,$land_line,$address_line1,$city,$postal_code);
+			if(isset($_POST['customer_id'])){
+				$customer_result = $_POST['customer_id'];
+			}else{
+				$customer_result = $objRecord->addCustomer($cus_name, $cus_email, $cus_phone1,$cus_phone2,$land_line,$address_line1,$city,$postal_code);
+			}
+			
 			if($customer_result){
 				$record_result = $objRecord->addRecord($staff_id,$customer_result,$date,$returned_date,$record_status);
 				if($record_result) {
@@ -87,7 +92,7 @@
 					$backup_result = $objRecord->addBackup($product_result,$backup);
 					$repair_result = $objRecord->addRepair($product_result,$repair_type,$repair_other,$additional_information);
 					$payment_result = $objRecord->addPayment($customer_result,$record_result,$service_fee,$parts_cost,$total,$paid);
-
+					//die();
 					$success_message = "You have successfully added the records. Record ID - 600000".$record_result;
 				}else{
 					$error_message = "Something went Wrong. Try Again.";
@@ -187,11 +192,57 @@
 	}else if( $action == "tables" ) {  //vithu
 		
 		$page = "tables";
-		$records = $objRecord->get_all();	
+		$records = $objRecord->get_all();
+
+		if ( isset ( $_POST["make_pdf"] ) ) {
+
+		require_once __DIR__ . '/../vendor/autoload.php';
+		$mpdf = new \Mpdf\Mpdf();
+		$recordID = $_POST['record_id'];
+		$results = $objRecord->getRecord($recordID);
+		
+		$data = '';
+		$data .= '<h3>Customer Details</h3>';
+		$data .= '<strong>Full Name </strong> '. $results['cus_name'] . '<br />';
+		$data .= '<strong>Email </strong> '. $results['cus_email'] . '<br />';
+		$data .= '<strong>Phone Number </strong> '. $results['cus_phone1'] . '<br />';
+		$data .= '<strong>Phone Number </strong> '. $results['cus_phone2'] . '<br />';
+		$data .= '<strong>City </strong> '. $results['city'] . '<br />';
+		$data .= '<strong>Postal Code </strong> '. $results['postal_code'] . '<br />';
+
+		$data .= '<h3>Product Details</h3>';
+		// $data .= '<strong>Postal Code </strong> '. $results['postal_code'] . '<br />';
+		// $data .= '<strong>Postal Code </strong> '. $results['postal_code'] . '<br />';
+		$data .= '<strong>Model </strong> '. $results['model'] . '<br />';
+		$data .= '<strong>Serial Number </strong> '. $results['serial_no'] . '<br />';
+		$data .= '<strong>Warrenty </strong> '. $results['warranty'] . '<br />';
+		$data .= '<strong>Accessories delivered </strong> '. $results['accessories'] . '<br />';
+		$data .= '<strong>General Statement </strong> '. $results['general_statement'] . '<br />';
+		$data .= '<strong>Non Complience </strong> '. $results['non_compliance'] . '<br />';
+		// $data .= '<strong>Postal Code </strong> '. $results['postal_code'] . '<br />';
+
+		//$url = __DIR__ .  '/../template/pdf_template.php';
+		//$url = "https://techsource.techedg.com/dashboard/home";
+		// $html = file_get_contents($url,$records);
+		// $mpdf->setBasePath($url);
+
+
+		$mpdf->WriteHTML($data);
+		$mpdf->Output('myfile.pdf','D');
+
+		}
+		
+	}else if( $action == "customer" ) {  //vithu
+		
+		$page = "customer";
+		$records = $objCustomer->getCustomers();	
 
 	}else if( $action == "user" ) {  //vithu
 		
 		$page = "user";
+	}else if( $action == "pdf_template" ) {  //vithu
+		
+		$page = "pdf_template";
 
 	}else {
 		

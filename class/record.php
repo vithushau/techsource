@@ -190,7 +190,8 @@
 			INNER JOIN repair on repair.product_id = product.product_id
 			INNER JOIN payment on payment.recordfk_id = record.record_id and payment.customer_id = customer.cus_id WHERE record.record_id = $id" );
 			if( $sql ) {
-				return $sql->fetch_array( MYSQLI_ASSOC );
+				//return $sql->fetch_array( MYSQLI_ASSOC );
+				return mysqli_fetch_assoc($sql);
 			}else {
 				return false;
 			}

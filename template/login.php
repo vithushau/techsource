@@ -18,7 +18,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-	<body  style="background-image: url(../assets/images/login2.jpg);">
+	<body  style="background-image: url(../assets/images/login3.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
