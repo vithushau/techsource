@@ -58,13 +58,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Phone Number 2</label>
-                          <input type="text" value="<?php echo $results['cus_phone2']; ?>" required name="cus_phone2" class="form-control">
+                          <input type="text" value="<?php echo $results['cus_phone2']; ?>" name="cus_phone2" class="form-control">
                         </div>
                       </div>
 					  <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Landline</label>
-                          <input type="text" value="<?php echo $results['land_line']; ?>" required name="land_line" class="form-control">
+                          <input type="text" value="<?php echo $results['land_line']; ?>" name="land_line" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -72,7 +72,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Adress</label>
-                          <input type="text" value="<?php echo $results['address_line1']; ?>" required name="address_line1" class="form-control">
+                          <input type="text" value="<?php echo $results['address_line1']; ?>" name="address_line1" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -80,14 +80,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">City</label>
-                          <input type="text" value="<?php echo $results['city']; ?>" required name="city" class="form-control">
+                          <input type="text" value="<?php echo $results['city']; ?>" name="city" class="form-control">
                         </div>
                       </div>
                      
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" value="<?php echo $results['postal_code']; ?>" required name="postal_code" class="form-control">
+                          <input type="text" value="<?php echo $results['postal_code']; ?>" name="postal_code" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -129,7 +129,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Others</label>
-							  <input required value="<?php echo $results['others']; ?>" type="text" name="others" class="form-control">
+							  <input  value="<?php echo $results['others']; ?>" type="text" name="others" class="form-control">
 							</div>
 						 </div>
 						
@@ -140,13 +140,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Serial / IMEI No.</label>
-							  <input required type="text" value="<?php echo $results['serial_no']; ?>" name="serial_no" class="form-control">
+							  <input  type="text" value="<?php echo $results['serial_no']; ?>" name="serial_no" class="form-control">
 							</div>
 						 </div>
 						 <div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Warranty Details</label>
-							  <input required type="text" value="<?php echo $results['warranty']; ?>" name="warranty" class="form-control">
+							  <input  type="text" value="<?php echo $results['warranty']; ?>" name="warranty" class="form-control">
 							</div>
 						 </div>
 					</div>
@@ -156,13 +156,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Accessories delivered</label>
-							  <textarea required id="accessories" name="accessories" rows="4" cols="50"><?php echo $results['accessories']; ?></textarea>
+							  <textarea  id="accessories" name="accessories" rows="4" cols="50"><?php echo $results['accessories']; ?></textarea>
 							</div>
 						 </div>
 						 <div class="col-md-6">
 							<div class="form-group">
 							  <label class="bmd-label-floating">General Statement </label>
-							  <textarea required id="general_statement" name="general_statement" rows="4" cols="50"><?php echo $results['general_statement']; ?></textarea>
+							  <textarea  id="general_statement" name="general_statement" rows="4" cols="50"><?php echo $results['general_statement']; ?></textarea>
 							</div>
 						 </div>
 					</div>
@@ -172,7 +172,7 @@
 							<div class="form-group">
 							  <label class="bmd-label-floating">Non Compliance</label>
 
-							  <textarea required id="non_compliance" name="non_compliance" rows="4" cols="50"><?php echo $results['non_compliance']; ?></textarea>
+							  <textarea  id="non_compliance" name="non_compliance" rows="4" cols="50"><?php echo $results['non_compliance']; ?></textarea>
 							</div>
 						 </div>
 						
@@ -288,7 +288,7 @@
 											<div class="form-group">
 											  <label class="bmd-label-floating">Other Notes</label>
 											  <input type="text" class="form-control">
-											  <textarea required id="condition_others" name="condition_others" rows="4" cols="50"><?php echo $results['condition_others']; ?></textarea>
+											  <textarea id="condition_others" name="condition_others" rows="4" cols="50"><?php echo $results['condition_others']; ?></textarea>
 											</div>
 										 </div>
 										
@@ -350,7 +350,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 							  <label class="bmd-label-floating">Other</label>
-							  <input required type="text" value="<?php echo $results['repair_other']; ?>" name="repair_other" class="form-control">
+							  <input type="text" value="<?php echo $results['repair_other']; ?>" name="repair_other" class="form-control">
 							</div>
 						 </div>
 						
@@ -362,7 +362,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Addional Information / Parts</label>
- <textarea id="additional_information" required name="additional_information" rows="4" cols="50"><?php echo $results['additional_information']; ?></textarea>
+ <textarea id="additional_information" name="additional_information" rows="4" cols="50"><?php echo $results['additional_information']; ?></textarea>
                         </div>
                       </div>
                     </div>

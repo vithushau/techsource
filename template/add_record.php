@@ -21,10 +21,10 @@
 			<div class="col-md-3"><p>Product Status : </p>   
 				<select required name="record_status" id="record_status">
   						<option value="">-- Select a Status -- </option>
-  						<option value="saab">Out for repair</option>
-  						<option value="mercedes">Waiting for parts</option>
-  						<option value="audi">Ready for pick up </option>
-   						<option value="audi">Completed </option>
+  						<option value="Outforrepair">Out for repair</option>
+  						<option value="Waitingforparts">Waiting for parts</option>
+  						<option value="Readyforpickup">Ready for pick up </option>
+   						<option value="Completed">Completed </option>
 					</select>
 				</div>
 					</div>
@@ -105,7 +105,7 @@
                     </div>
 				  </div>
 
-				  <div id="show_existing">
+				  <div id="show_existing" style="display: none;">
 				  <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -355,7 +355,7 @@
 							  <select required name="repair_type" id="repair_type">
 							  <option value="">-- Select a Type -- </option>
 							  <option value="Motherboard">Motherboard</option>
-							  <option value="Charging Port">Charging Port</option>
+							  <option value="ChargingPort">Charging Port</option>
 							  <option value="Screen">Screen </option>
 							   <option value="Hinge">Hinge </option>
 							   <option value="Software">Software </option>
@@ -472,11 +472,11 @@
 		if($('div.checkbox-group.required :checkbox:checked').length > 0){
 			//alert('Select Checkbox');
 		}else{
-			alert('Select Checkbox');
+			//alert('Select Checkbox');
 		}
 		}
 
-		$("#add_record").click(function() {
-    		validate();
-		});
+		// $("#add_record").click(function() {
+    	// 	//validate();
+		// });
     </script>

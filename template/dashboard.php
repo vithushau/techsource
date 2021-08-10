@@ -310,11 +310,14 @@
 
                             <td style="text-align: center;">
 
-                                    <a href="#"><button type="button" class="btn btn-prmary">Edit</button></a>
+                                    <!-- <a href="#"><button type="button" class="btn btn-prmary">Edit</button></a> -->
 
                                     <!-- <a href="#"><button onclick="return confirm('Do you really want to delete?')" type="button" class="btn btn-prmary">Delete</button></a> -->
 
-                                    <a href="#"><button type="button" class="btn btn-outline-danger">Print PDF</button></a>
+                                    <!-- <a href="#"><button type="button" class="btn btn-primary">Print PDF</button></a> -->
+                                    <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button style="display: inline-block;" type="button" class="btn btn-outline-secondary">Edit</button></a>
+                                
+                                  </form>
 
                             </td>
 

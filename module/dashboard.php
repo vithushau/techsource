@@ -15,7 +15,7 @@
 			$result = $objLogin->getLogin($userName);
 				if (!empty($result)) {
 					
-					$check  = password_verify($password,$result[0]['password']);
+					$check  = password_verify($password,$result['password']);
 					if($check) {
 						$_SESSION['admin_user_info'] = $result;
 						header("Location: ".BASE_URL."home");	
@@ -45,12 +45,38 @@
 			$record_status=$_POST['record_status'];
 			$cus_name=$_POST['cus_name'];
 			$cus_email=$_POST['cus_email'];
-			$cus_phone1=$_POST['cus_phone1'];
-			$cus_phone2=$_POST['cus_phone2'];
-			$land_line=$_POST['land_line'];
-			$address_line1=$_POST['address_line1'];
-			$city=$_POST['city'];
-			$postal_code=$_POST['postal_code'];
+			if(isset($_POST['cus_phone1'])){
+				$cus_phone1=$_POST['cus_phone1'];
+			}else{
+				$cus_phone1 = "";
+			}
+			if(isset($_POST['cus_phone2'])){
+				$cus_phone2=$_POST['cus_phone2'];
+			}else{
+				$cus_phone2 = "";
+			}
+			if(isset($_POST['land_line'])){
+				$land_line=$_POST['land_line'];
+			}else{
+				$land_line = "";
+			}
+			if(isset($_POST['address_line1'])){
+				$address_line1=$_POST['address_line1'];
+			}else{
+				$address_line1 = "";
+			}
+			if(isset($_POST['city'])){
+				$city=$_POST['city'];
+			}else{
+				$city = "";
+			}
+			if(isset($_POST['postal_code'])){
+				$postal_code=$_POST['postal_code'];
+			}else{
+				$postal_code = "";
+			}
+			
+			
 			$pro_type_id=$_POST['pro_type_id'];
 			$pro_band_id=$_POST['pro_band_id'];
 			$model=$_POST['model'];
@@ -60,15 +86,37 @@
 			$accessories=$_POST['accessories'];
 			$general_statement=$_POST['general_statement'];
 			$non_compliance=$_POST['non_compliance'];
-			$xscratch=$_POST['scratch'];
-			$scratch=  implode(",", $xscratch);
-			$xcrack=$_POST['crack'];
-			$crack=  implode(",", $xcrack);
-			$xdamage=$_POST['damage'];
-			$damage=  implode(",", $xdamage);
+			
+			if(isset($_POST['scratch'])){
+				$xscratch = $_POST['scratch'];
+				$scratch=  implode(",", $xscratch);
+			}else{
+				$scratch = "";
+			}
+
+			if(isset($_POST['crack'])){
+				$xcrack=$_POST['crack'];
+				$crack=  implode(",", $xcrack);
+			}else{
+				$crack = "";
+			}
+
+			if(isset($_POST['damage'])){
+				$xdamage=$_POST['damage'];
+				$damage=  implode(",", $xdamage);
+			}else{
+				$damage = "";
+			}
+
+			if(isset($_POST['backup'])){
+				$xbackup=$_POST['backup'];
+				$backup=  implode(",", $xbackup);
+			}else{
+				$backup = "";
+			}
+			
+			
 			$condition_others=$_POST['condition_others'];
-			$xbackup=$_POST['backup'];
-			$backup=  implode(",", $xbackup);
 			$repair_type=$_POST['repair_type'];
 			$repair_other=$_POST['repair_other'];
 			$additional_information=$_POST['additional_information'];
@@ -77,12 +125,11 @@
 			$total=$_POST['total'];
 			$paid=$_POST['paid'];
 			$staff_id = "1";
-			if(isset($_POST['customer_id'])){
+			if(isset($_POST['customer_id']) && $_POST['customer_id'] != ""){
 				$customer_result = $_POST['customer_id'];
 			}else{
 				$customer_result = $objRecord->addCustomer($cus_name, $cus_email, $cus_phone1,$cus_phone2,$land_line,$address_line1,$city,$postal_code);
 			}
-			
 			if($customer_result){
 				$record_result = $objRecord->addRecord($staff_id,$customer_result,$date,$returned_date,$record_status);
 				if($record_result) {
@@ -119,12 +166,42 @@
 			$record_status=$_POST['record_status'];
 			$cus_name=$_POST['cus_name'];
 			$cus_email=$_POST['cus_email'];
-			$cus_phone1=$_POST['cus_phone1'];
-			$cus_phone2=$_POST['cus_phone2'];
-			$land_line=$_POST['land_line'];
-			$address_line1=$_POST['address_line1'];
-			$city=$_POST['city'];
-			$postal_code=$_POST['postal_code'];
+			// $cus_phone1=$_POST['cus_phone1'];
+			// $cus_phone2=$_POST['cus_phone2'];
+			// $land_line=$_POST['land_line'];
+			// $address_line1=$_POST['address_line1'];
+			// $city=$_POST['city'];
+			// $postal_code=$_POST['postal_code'];
+			if(isset($_POST['cus_phone1'])){
+				$cus_phone1=$_POST['cus_phone1'];
+			}else{
+				$cus_phone1 = "";
+			}
+			if(isset($_POST['cus_phone2'])){
+				$cus_phone2=$_POST['cus_phone2'];
+			}else{
+				$cus_phone2 = "";
+			}
+			if(isset($_POST['land_line'])){
+				$land_line=$_POST['land_line'];
+			}else{
+				$land_line = "";
+			}
+			if(isset($_POST['address_line1'])){
+				$address_line1=$_POST['address_line1'];
+			}else{
+				$address_line1 = "";
+			}
+			if(isset($_POST['city'])){
+				$city=$_POST['city'];
+			}else{
+				$city = "";
+			}
+			if(isset($_POST['postal_code'])){
+				$postal_code=$_POST['postal_code'];
+			}else{
+				$postal_code = "";
+			}
 			$pro_type_id=$_POST['pro_type_id'];
 			$pro_band_id=$_POST['pro_band_id'];
 			$model=$_POST['model'];
@@ -134,15 +211,43 @@
 			$accessories=$_POST['accessories'];
 			$general_statement=$_POST['general_statement'];
 			$non_compliance=$_POST['non_compliance'];
-			$xscratch=$_POST['scratch'];
-			$scratch=  implode(",", $xscratch);
-			$xcrack=$_POST['crack'];
-			$crack=  implode(",", $xcrack);
-			$xdamage=$_POST['damage'];
-			$damage=  implode(",", $xdamage);
+			// $xscratch=$_POST['scratch'];
+			// $scratch=  implode(",", $xscratch);
+			// $xcrack=$_POST['crack'];
+			// $crack=  implode(",", $xcrack);
+			// $xdamage=$_POST['damage'];
+			// $damage=  implode(",", $xdamage);
+			if(isset($_POST['scratch'])){
+				$xscratch = $_POST['scratch'];
+				$scratch=  implode(",", $xscratch);
+			}else{
+				$scratch = "";
+			}
+
+			if(isset($_POST['crack'])){
+				$xcrack=$_POST['crack'];
+				$crack=  implode(",", $xcrack);
+			}else{
+				$crack = "";
+			}
+
+			if(isset($_POST['damage'])){
+				$xdamage=$_POST['damage'];
+				$damage=  implode(",", $xdamage);
+			}else{
+				$damage = "";
+			}
+
+			if(isset($_POST['backup'])){
+				$xbackup=$_POST['backup'];
+				$backup=  implode(",", $xbackup);
+			}else{
+				$backup = "";
+			}
+			
 			$condition_others=$_POST['condition_others'];
-			$xbackup=$_POST['backup'];
-			$backup=  implode(",", $xbackup);
+			// $xbackup=$_POST['backup'];
+			// $backup=  implode(",", $xbackup);
 			$repair_type=$_POST['repair_type'];
 			$repair_other=$_POST['repair_other'];
 			$additional_information=$_POST['additional_information'];
