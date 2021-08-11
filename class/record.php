@@ -181,7 +181,7 @@
 			
 			global $mysqli;
 			
-			$sql = $mysqli->query( "SELECT *, backup.type as back_type FROM `customer` inner join record on record.cusfk_id = customer.cus_id 
+			$sql = $mysqli->query( "SELECT *, pro_brand.name as pro_brand_name, pro_type.name as pro_type_name, backup.type as back_type FROM `customer` inner join record on record.cusfk_id = customer.cus_id 
 			INNER JOIN product on product.recordfk_id = record.record_id
 			INNER JOIN pro_brand on pro_brand.proband_id = product.pro_band_id
 			INNER JOIN pro_type on pro_type.protype_id = product.pro_type_id
