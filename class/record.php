@@ -118,22 +118,22 @@
 			
 		}
 
-        function addPayment( $data1, $data2, $data3, $data4, $data5, $data6 ) {
+        function addPayment( $data1, $data2, $data3, $data4, $data5, $data6,$data7, $data8 ) {
 			
 			global $mysqli;
 			
-			$sql = $mysqli->query( "INSERT INTO `payment` ( `customer_id`, `recordfk_id`, `service_fee`, `parts_cost`, `total`,`paid` ) VALUES ( '$data1', '$data2', '$data3','$data4', '$data5','$data6')" );
+			$sql = $mysqli->query( "INSERT INTO `payment` ( `customer_id`, `recordfk_id`, `service_fee`, `parts_cost`, `total`,`paid`,`tax`,`final_total` ) VALUES ( '$data1', '$data2', '$data3','$data4', '$data5','$data6','$data7','$data8')" );
             $last_id = $mysqli->insert_id;
 			//return $last_id;
             return $sql;
 			
 		}
 
-		function updatePayment( $data1,$data2, $data3,$data4, $id ) {
+		function updatePayment( $data1,$data2, $data3,$data4,$data5,$data6, $id ) {
 			
 			global $mysqli;
 			
-			$sql = $mysqli->query( "UPDATE `payment` SET `service_fee` = '$data1', `parts_cost` = '$data2', `total` = '$data3',`paid` = '$data4'  WHERE payment_id = $id" );
+			$sql = $mysqli->query( "UPDATE `payment` SET `service_fee` = '$data1', `parts_cost` = '$data2', `total` = '$data3',`paid` = '$data4' ,`tax` = '$data5',`final_total` = '$data6'  WHERE payment_id = $id" );
 			return $sql;
 			
 		}
@@ -168,7 +168,7 @@
 			
 			global $mysqli;
 			
-			$sql = $mysqli->query( "SELECT * FROM `record` INNER JOIN `customer` ON customer.cus_id = record.cusfk_id" );
+			$sql = $mysqli->query( "SELECT * FROM `record` INNER JOIN `customer` ON customer.cus_id = record.cusfk_id ORDER BY record.record_id DESC;" );
 			if( $sql ) {
 				return $sql;
 			}else {

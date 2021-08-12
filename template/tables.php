@@ -39,11 +39,11 @@
                             <td><?php echo $row['date'] ?></td>
                             <td><?php echo $row['returned_date'] ?></td>
                             <td style="white-space: nowrap;">
-                                    <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button style="display: inline-block;" type="button" class="btn btn-outline-secondary">Edit</button></a>
+                                    <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button style="display: inline;float: left;" type="button" class="btn btn-outline-secondary">Edit</button></a>
                                     <!-- <a href="<?php echo BASE_URL . 'delete_record?id='; ?><?php echo $row['record_id'] ?>"><button onclick="return confirm('Do you really want to delete?')" type="button" class="btn btn-outline-danger">Delete</button></a> -->
                                     <form method="post">
                                     <input type="hidden" value="<?php echo $row['record_id'] ?>" name="record_id">  
-                                    <button type="submit" style="display: inline-block;" name="make_pdf" class="btn btn-outline-danger">Print PDF</button>
+                                    <button type="submit" style="display: inline; background: red !important;" name="make_pdf" class="btn btn-outline-danger">Print PDF</button>
                                   </form>
                             </td>
                           </tr>

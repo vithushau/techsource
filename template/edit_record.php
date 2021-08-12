@@ -373,13 +373,13 @@
 					<div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Service Fee</label>
-                          <input required type="text" value="<?php echo $results['service_fee']; ?>" name="service_fee" class="form-control">
+                          <input required type="text" id="service_fee" value="<?php echo $results['service_fee']; ?>" name="service_fee" class="form-control">
                         </div>
                       </div>
 					  <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Parts Cost</label>
-                          <input required type="text" value="<?php echo $results['parts_cost']; ?>" name="parts_cost" class="form-control">
+                          <input required type="text" id="parts_cost" value="<?php echo $results['parts_cost']; ?>" name="parts_cost" class="form-control">
                         </div>
                       </div>
 					  
@@ -393,16 +393,26 @@
 					<div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Total</label>
-                          <input required type="text" value="<?php echo $results['total']; ?>" name="total" class="form-control">
+                          <input disabled type="text" value="<?php echo $results['total']; ?>" name="total" id="total" class="form-control">
                         </div>
                       </div>
 					  <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Paid</label>
-                          <input required type="text" value="<?php echo $results['paid']; ?>" name="paid" class="form-control">
+                          <input required type="text" value="<?php echo $results['paid']; ?>" name="paid" id="paid" class="form-control">
                         </div>
                       </div>
-					  
+					  <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Balance Need to Pay</label>
+                          <input disabled type="text" name="balance" id="balance" class="form-control">
+                        </div>
+                      </div>
+					  <div class="col-md-1">
+                        <div class="form-group">
+						<input type="button" name="clickbtn" value="Calculate" onclick="add_number()">
+                        </div>
+                      </div>
 					  
 					  
 					  
@@ -422,3 +432,17 @@
           </div>
         </div>
       </div>
+
+
+	  <script>
+		  function add_number() {
+			var first_number = parseInt(document.getElementById("service_fee").value);
+            var second_number = parseInt(document.getElementById("parts_cost").value);
+			var paid = parseInt(document.getElementById("paid").value);
+            var result = first_number + second_number;
+			var balance = result - paid;
+
+            document.getElementById("total").value = result;
+			document.getElementById("balance").value = balance;
+		}
+		  </script>

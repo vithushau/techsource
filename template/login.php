@@ -18,7 +18,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-	<body  style="background-image: url(../assets/images/login3.jpg);">
+	<body  style="background-image: url(../assets/images/login4.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -38,12 +38,12 @@
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
 								</div>
-								<div class="w-50 text-md-right">
+								<!-- <div class="w-50 text-md-right">
 									<a href="#">Forgot Password</a>
-								</div>
+								</div> -->
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" name="login_submit" class="btn btn-primary rounded text-center submit p-3 px-5">Login</button>
+	            	<button type="submit" style="text-align: center;" name="login_submit" class="btn btn-warning rounded text-center submit p-3 px-5">Login</button>
 	            </div>
 	          </form>
 	        </div>
