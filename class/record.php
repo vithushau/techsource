@@ -168,7 +168,7 @@
 			
 			global $mysqli;
 			
-			$sql = $mysqli->query( "SELECT * FROM `record` INNER JOIN `customer` ON customer.cus_id = record.cusfk_id ORDER BY record.record_id DESC;" );
+			$sql = $mysqli->query( "SELECT * FROM `record` INNER JOIN `customer` ON customer.cus_id = record.cusfk_id INNER JOIN `payment` ON payment.recordfk_id = record.record_id ORDER BY record.record_id DESC" );
 			if( $sql ) {
 				return $sql;
 			}else {

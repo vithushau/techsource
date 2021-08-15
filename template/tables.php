@@ -28,6 +28,9 @@
                           Returned Date
                         </th>
                         <th>
+                         Due
+                        </th>
+                        <th>
                           Actions
                         </th>
                       </thead>
@@ -38,6 +41,7 @@
                             <td><?php echo $row['cus_name'] ?></td>
                             <td><?php echo $row['date'] ?></td>
                             <td><?php echo $row['returned_date'] ?></td>
+                            <td><?php $due = $row['total'] - $row['paid']; echo number_format($due, 2);?></td>
                             <td style="white-space: nowrap;">
                                     <a href="<?php echo BASE_URL . 'edit_record?id='; ?><?php echo $row['record_id'] ?>"><button style="display: inline;float: left;" type="button" class="btn btn-outline-secondary">Edit</button></a>
                                     <!-- <a href="<?php echo BASE_URL . 'delete_record?id='; ?><?php echo $row['record_id'] ?>"><button onclick="return confirm('Do you really want to delete?')" type="button" class="btn btn-outline-danger">Delete</button></a> -->
