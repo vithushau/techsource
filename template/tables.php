@@ -12,6 +12,19 @@
                   <p class="card-category"> </p>
                 </div>
                 <div class="card-body">
+                <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6 searchx">
+                      <form class="form-group" method="POST">
+                        <div class="input-group rounded">
+                            <input type="search" name="search_value" class="form-control" placeholder="Enter Here" />
+                            <button name="search" type="submit">Search </button>
+                        </div>
+                      </form>
+                  </div>
+                  
+                </div>  
+                
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
@@ -54,6 +67,31 @@
                       <?php } ?>
                       </tbody>
                     </table>
+                    <nav class="container">
+                        <ul class="pagination">
+                            <?php for ($i = 1; $i <= $nop; $i++) { ?>
+                                <li style="font-size: 16px;border: 1px solid black;padding: 10px 10px;" class="page-item"><a href="<?php echo BASE_URL . 'tables?page='; ?><?php echo  $i;?>"><?php echo $i; ?></a></li>
+                            <?php } ?>
+                        </ul>
+
+                        <!-- <ul class="pagin-box">
+				            <?php if( $page_no > 1 ) { ?>
+					            <li class=''><a href="<?php echo BASE_URL . "?page=" . ( $page_no - 1 ); ?>"><</a></li>
+				            <?php } ?>
+					          <?php 
+						          for( $x=1;$x<=$pagin_buttons;$x++ ){ 
+							          if( ! in_array ( $x ,$pagin_button ) ) continue;
+					            ?>
+					
+						        <li class='<?php echo ( $page_no == $x )? "active " : ""; ?>'><a href="<?php echo BASE_URL . "?page=" . $x; ?>"><?php echo $x; ?></a></li>
+					
+					          <?php } ?> 
+				            <?php if( $pagin_buttons > $page_no ) { ?>
+					          <li class=''><a href="<?php echo BASE_URL . "?page=" . ( $page_no + 1 ); ?>">></a></li>
+				            <?php } ?>
+			              </ul> -->
+
+                    </nav>
                   </div>
                 </div>
               </div>

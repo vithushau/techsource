@@ -199,4 +199,38 @@
 			
 		}
 
+		function limit_records($start, $limit) {
+			
+			global $mysqli;
+			
+			$sql = $mysqli->query("SELECT * FROM `record` INNER JOIN `customer` ON customer.cus_id = record.cusfk_id INNER JOIN `payment` ON payment.recordfk_id = record.record_id ORDER BY record.record_id DESC LIMIT $start,$limit" );
+			if( $sql ) {
+				return $sql;
+			}else {
+				return false;
+			}
+			
+		}
+
+		public function search_records($keyword)
+		{
+			global $mysqli;
+			
+			$sql = $mysqli->query( "SELECT * FROM `record` 
+			INNER JOIN `customer` ON customer.cus_id = record.cusfk_id 
+			INNER JOIN `payment` ON payment.recordfk_id = record.record_id
+			INNER JOIN `product` ON product.recordfk_id = record.record_id
+			WHERE 
+			record.record_id LIKE '%$keyword%' OR customer.cus_name LIKE '%$keyword%' OR
+			customer.cus_phone1 LIKE '%$keyword%' OR customer.cus_phone2 LIKE '%$keyword%' OR
+			customer.land_line LIKE '%$keyword%' OR product.model LIKE '%$keyword%' OR
+			customer.cus_email LIKE '%$keyword%'
+			" );
+			if( $sql ) {
+				return $sql;
+			}else {
+				return false;
+			}
+		}
+
     }

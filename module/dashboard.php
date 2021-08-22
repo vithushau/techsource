@@ -305,7 +305,36 @@
 	}else if( $action == "tables" ) {  //vithu
 		
 		$page = "tables";
-		$records = $objRecord->get_all();
+		$recordsx = $objRecord->get_all();
+		$nou = 0;
+		foreach($recordsx as $row) {
+			$nou++;
+		}
+		$limit = 10;
+		$nop = ceil($nou / $limit); // To count no of pages 
+
+		if (!isset($_GET['page']) || $_GET['page'] == 1) {
+			$start = 0;
+		} else {
+			$start = 10 * $_GET['page'] - 10;
+		}
+	
+		$page_no = ( isset ( $_GET["page"] ) )? $_GET["page"] : 1;
+		$pagin_buttons = 5; //TOTAL BUTTONS OR PAGES
+				
+		/* FUNCTION TO MINIFY BUTTONS */
+		if( $page_no >= 4 ) {
+		$pagin_button = range( $page_no - 3, $page_no + 3 );
+		}else {
+		$pagin_button = range( 1, $page_no + 3 );
+		}
+		$records = $objRecord->limit_records($start, $limit);
+
+		if ( isset ( $_POST["search" ] ) ) {
+			$search=$_POST['search_value'];
+			$records = $objRecord->search_records($search);
+			$page = "tables";
+		}
 
 		if ( isset ( $_POST["make_pdf"] ) ) {
 

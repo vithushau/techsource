@@ -1,0 +1,15 @@
+.page-item {
+    border: 1px solid #aeaaaa !important;
+    padding: 11px !important;
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.col-md-6.searchx button {
+    background: #c1d8ec;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 10px 43px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
